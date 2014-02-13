@@ -14,12 +14,12 @@ module.exports = {
 		ret += table(result.map(function (el, i) {
 			var err = el.error;
 			var line = [
-				'',
+				chalk.yellow('∆'),
                 chalk.gray(err.id),
 				chalk.blue('line ' + err.line),
                 chalk.gray('col ' + err.character),
-				chalk.green('code ' + err.code),
-				chalk.blue(err.reason)
+				chalk.blue(err.code),
+				chalk.green(err.reason)
 			];
 
 			if (el.file !== prevfile) {
