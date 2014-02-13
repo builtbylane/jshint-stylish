@@ -2,14 +2,6 @@
   "name": "jshint-stylish-lane",
   "version": "0.1.4",
   "description": "Stylish reporter for JSHint Custom for Lane",
-  "keywords": [
-    "jshint",
-    "reporter",
-    "lint",
-    "validate",
-    "stylish",
-    "elegant"
-  ],
   "homepage": "https://github.com/builtbylane/jshint-stylish-lane",
   "files": [
     "index.js",
@@ -18,7 +10,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git://github.com/builtbylane/jshint-stylish-lane.git"
+    "url": "git+ssh://git://github.com/builtbylane/jshint-stylish-lane.git"
   },
   "scripts": {
     "test": "mocha"
