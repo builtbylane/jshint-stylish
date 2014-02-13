@@ -15,8 +15,10 @@ module.exports = {
 			var err = el.error;
 			var line = [
 				'',
-				chalk.gray('line ' + err.line),
-				chalk.blue('col ' + err.character),
+                chalk.gray(err.id),
+				chalk.blue('line ' + err.line),
+                chalk.gray('col ' + err.character),
+				chalk.green('code ' + err.code),
 				chalk.blue(err.reason)
 			];
 
