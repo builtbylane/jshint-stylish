@@ -1,4 +1,4 @@
-# jshint-stylish [![Build Status](https://secure.travis-ci.org/sindresorhus/jshint-stylish.png?branch=master)](http://travis-ci.org/sindresorhus/jshint-stylish)
+# jshint-stylish [![Build Status](https://secure.travis-ci.org/builtbylane/jshint-stylish-lane.png?branch=master)](http://travis-ci.org/builtbylane/jshint-stylish-lane)
 
 > Stylish reporter for [JSHint](https://github.com/jshint/jshint)
 
@@ -41,6 +41,4 @@ grunt.registerTask('default', ['jshint']);
 ```
 
 
-## License
-
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+#

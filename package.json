@@ -1,7 +1,7 @@
 {
   "name": "jshint-stylish",
   "version": "0.1.4",
-  "description": "Stylish reporter for JSHint",
+  "description": "Stylish reporter for JSHint Custom for Lane",
   "keywords": [
     "jshint",
     "reporter",
@@ -10,21 +10,15 @@
     "stylish",
     "elegant"
   ],
-  "homepage": "https://github.com/sindresorhus/jshint-stylish",
-  "bugs": "https://github.com/sindresorhus/jshint-stylish/issues",
+  "homepage": "https://github.com/builtbylane/jshint-stylish-lane",
   "license": "MIT",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
-  },
   "files": [
     "index.js",
     "stylish.js"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/sindresorhus/jshint-stylish.git"
+    "url": "git://github.com/builtbylane/jshint-stylish-lane.git"
   },
   "scripts": {
     "test": "mocha"
