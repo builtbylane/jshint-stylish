@@ -16,7 +16,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "private-repo": "git@github.com:builtbylane/jshint-stylish-lane.git#v0.1.4",
+    "jshint-stylish-lane": "git@github.com:builtbylane/jshint-stylish-lane.git#v0.1.4",
     "chalk": "~0.4.0",
     "text-table": "~0.2.0"
   },
