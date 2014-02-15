@@ -14,10 +14,11 @@ module.exports = {
 		ret += table(result.map(function (el, i) {
 			var err = el.error;
 			var line = [
-				chalk.blue('jshint -' + err.code),
                 chalk.gray(err.id.slice(1,-4)), // remove first and last char
-                chalk.gray('col ' + err.character),
-				chalk.blue('line ' + err.line),
+                chalk.blue('jshint -' + err.code),
+                chalk.gray('line'),
+				chalk.blue(err.line),
+                chalk.gray(':' + err.character),
 				chalk.green(err.reason)
 			];
 
