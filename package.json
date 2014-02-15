@@ -21,7 +21,8 @@
   },
   "devDependencies": {
     "mocha": "*",
-      "jshint": "~2"
+    "jshint": "~2",
+    "jshint-stylish-lane": "git+ssh://git@github.com:builtbylane/jshint-stylish-lane.git"
   },
   "engines": {
     "node": ">=0.8.0"
