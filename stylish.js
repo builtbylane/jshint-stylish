@@ -33,17 +33,21 @@ module.exports = {
 			prevfile = el.file;
 
 			return line;
-		})).split('\n').map(function (el, i) {
-			return headers[i] ? '\n' + chalk.underline(headers[i]) + '\n' + el : el;
-		}).join('\n') + '\n\n';
+		}), {
+            stringLength: function (str) {
+                return chalk.stripColor(str).length;
+            }
+        }).split('\n').map(function (el, i) {
+            return headers[i] ? '\n' + chalk.underline(headers[i]) + '\n' + el : el;
+        }).join('\n') + '\n\n';
 
-		if (total > 0) {
-			ret += chalk.red.bold((process.platform !== 'win32' ? '✖ ' : '') + total + ' problem' + (total === 1 ? '' : 's'));
-		} else {
-			ret += chalk.green.bold((process.platform !== 'win32' ? '✔ ' : '') + 'No problems');
-			ret = '\n' + ret.trim();
-		}
+        if (total > 0) {
+            ret += chalk.red.bold((process.platform !== 'win32' ? '✖ ' : '') + total + ' problem' + (total === 1 ? '' : 's'));
+        } else {
+            ret += chalk.green.bold((process.platform !== 'win32' ? '✔ ' : '') + 'No problems');
+            ret = '\n' + ret.trim();
+        }
 
-		console.log(ret + '\n');
+        console.log(ret + '\n');
 	}
 };

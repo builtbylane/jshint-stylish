@@ -8,10 +8,7 @@
     "stylish.js"
   ],
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git://github.com/builtbylane/jshint-stylish-lane.git"
-  },
+  "repository": "builtbylane/jshint-stylish-lane.git",
   "scripts": {
     "test": "mocha"
   },
@@ -21,10 +18,9 @@
   },
   "devDependencies": {
     "mocha": "*",
-    "jshint": "~2",
-    "jshint-stylish-lane": "git+ssh://git@github.com:builtbylane/jshint-stylish-lane.git"
+    "jshint": "~2"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.10.0"
   }
 }
