@@ -1,6 +1,6 @@
 {
   "name": "jshint-stylish-lane",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Stylish reporter for JSHint Custom for Lane",
   "homepage": "https://github.com/builtbylane/jshint-stylish-lane",
   "files": [
