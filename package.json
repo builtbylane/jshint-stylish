@@ -7,7 +7,17 @@
     "index.js",
     "stylish.js"
   ],
-  "private": true,
+  "keywords": [
+      "jshint",
+      "stylish",
+      "clean"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/spenceralger/gulp-jshint/raw/master/LICENSE"
+    }
+  ],
   "repository": "builtbylane/jshint-stylish-lane.git",
   "scripts": {
     "test": "mocha"
