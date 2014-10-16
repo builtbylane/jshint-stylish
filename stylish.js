@@ -4,6 +4,9 @@ var table = require('text-table');
 var logSymbols = require('log-symbols');
 var stringLength = require('string-length');
 
+function pluralize(str, count) {
+  return str + (count === 1 ? '' : 's');
+}
 module.exports = {
 	reporter: function (result, config, options) {
 		var total = result.length;
@@ -17,6 +20,9 @@ module.exports = {
 
 		ret += table(result.map(function (el, i) {
 			var err = el.error;
+      // E: Error, W: Warning, I: Info
+      var isError = err.code && err.code[0] === 'E';
+
 			var line = [
         chalk.gray(err.id),// .slice(1,-4) // remove first and last char
         chalk.blue('jshint -' + err.code),
