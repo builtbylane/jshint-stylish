@@ -5,24 +5,24 @@ var jshint = require('jshint/src/cli').run;
 var reporter = require('./stylish.js').reporter;
 
 
-describe('jshint-stylish', function () {
-	it('should be used by JSHint', function () {
-		var ret = false;
-		var _log = process.stdout.write;
+it('should be used by JSHint', function () {
+  var ret = false;
+  var _log = process.stdout.write.bind(process.stdout);
 
-		process.stdout.write = function (str) {
-			if (/line 8   col 1   'describe' is not defined/ig.test(chalk.stripColor(str || ''))) {
-				ret = true;
-			}
-		}
+  process.stdout.write = function (str) {
+    _log(str);
 
-		jshint({
-			args: ['test.js'],
-			reporter: reporter
-		});
+    if (/'foo' is defined/ig.test(chalk.stripColor(str || ''))) {
+      ret = true;
+    }
+  };
 
-		process.stdout.write = _log;
+  jshint({
+    args: ['fixture.js'],
+    reporter: reporter
+  });
 
-		assert(ret);
-	});
+  process.stdout.write = _log;
+
+  assert(ret);
 });
