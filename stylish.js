@@ -7,6 +7,7 @@ var stringLength = require('string-length');
 function pluralize(str, count) {
   return str + (count === 1 ? '' : 's');
 }
+
 module.exports = {
 	reporter: function (result, config, options) {
 		var total = result.length;
