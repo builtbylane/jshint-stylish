@@ -1,6 +1,8 @@
 'use strict';
 var chalk = require('chalk');
 var table = require('text-table');
+var logSymbols = require('log-symbols');
+var stringLength = require('string-length');
 
 module.exports = {
 	reporter: function (result, config, options) {
@@ -8,17 +10,19 @@ module.exports = {
 		var ret = '';
 		var headers = [];
 		var prevfile;
+    var errorCount = 0;
+    var warningCount = 0;
 
 		options = options || {};
 
 		ret += table(result.map(function (el, i) {
 			var err = el.error;
 			var line = [
-                chalk.gray(err.id),// .slice(1,-4) // remove first and last char
-                chalk.blue('jshint -' + err.code),
-                chalk.gray('line'),
+        chalk.gray(err.id),// .slice(1,-4) // remove first and last char
+        chalk.blue('jshint -' + err.code),
+        chalk.gray('line'),
 				chalk.blue(err.line),
-                chalk.gray(':' + err.character),
+        chalk.gray(':' + err.character),
 				chalk.green(err.reason)
 			];
 
@@ -30,24 +34,31 @@ module.exports = {
 				line.push(chalk.gray('(' + err.code + ')'));
 			}
 
+      if (isError) {
+        errorCount++;
+      } else {
+        warningCount++;
+      }
 			prevfile = el.file;
 
 			return line;
 		}), {
-            stringLength: function (str) {
-                return chalk.stripColor(str).length;
-            }
-        }).split('\n').map(function (el, i) {
-            return headers[i] ? '\n' + chalk.underline(headers[i]) + '\n' + el : el;
-        }).join('\n') + '\n\n';
+      stringLength: stringLength
 
-        if (total > 0) {
-            ret += chalk.red.bold((process.platform !== 'win32' ? '✖ ' : '') + total + ' problem' + (total === 1 ? '' : 's'));
-        } else {
-            ret += chalk.green.bold((process.platform !== 'win32' ? '✔ ' : '') + 'No problems');
-            ret = '\n' + ret.trim();
-        }
+    }).split('\n').map(function (el, i) {
+      return headers[i] ? '\n' + chalk.underline(headers[i]) + '\n' + el : el;
+    }).join('\n') + '\n\n';
 
-        console.log(ret + '\n');
+    if (total > 0) {
+      if (errorCount > 0) {
+        ret += ' ' + logSymbols.error + '  ' + errorCount + pluralize(' error', errorCount) + (warningCount > 0 ? '\n' : '');
+      }
+
+      ret += ' ' + logSymbols.warning + '  ' + warningCount + pluralize(' warning', total);
+    } else {
+      ret += ' ' + logSymbols.success + ' No problems';
+      ret = '\n' + ret.trim();
+    }
+    console.log(ret + '\n');
 	}
 };
