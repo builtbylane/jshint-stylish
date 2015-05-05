@@ -11,7 +11,7 @@ Compared to the default reporter:
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/jshint-stylish): `npm install --save-dev jshint-stylish`
+Install with [npm](https://npmjs.org/package/jshint-stylish): `npm install --save-dev jshint-stylish-lane`
 
 
 ## Getting started
